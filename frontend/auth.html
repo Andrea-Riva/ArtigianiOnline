@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artigiani Online - Trova il tuo artigiano di fiducia">
+    <meta name="keywords" content="artigiani, online, servizi, artigiani online, trova artigiano">
+    <link rel="stylesheet" href="style/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style/navbar.css">
+
+</head>
+
+<body>
+    <div class="container">
+                <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <a href="index.html">AO</a>
+                </div>
+            </div>
+            <div class="nav-content">
+                <ul class="nav-links">
+                    <li><a href="categorie.html">Categorie</a></li>
+                    <li><a href="#">Esplora Artigiani</a></li>
+                    <li><a href="#">Chi Siamo</a></li>
+                </ul>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Cerca prodotti..." class="search-bar">
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-icons">
+                    <a href="#" class="icon-link"><i class="fas fa-shopping-cart"></i></a>
+                    <a href="index.html" class="icon-link"><i class="fas fa-user"></i></a>
+                </div>
+                <div class="menu-icon">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#">Categorie</a></li>
+            <li><a href="#">Esplora Artigiani</a></li>
+            <li><a href="#">Chi Siamo</a></li>
+        </ul>
+    </div>
+        <div class="form-box login">
+            <form action="">    
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Nome utente" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="forgot-link">
+                    <a href="#">Forgot password</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <form action="">    
+                <h1>Registrazione</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Nome" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Cognome" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <button type="submit" class="btn">Registrati</button>
+            </form>
+        </div>
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Ciao, benvenuto!</h1>
+                <p>non hai un account?</p>
+                <button class="btn register-btn">Registrati</button>
+            </div> 
+            <div class="toggle-panel toggle-right">
+                <h1>Ciao, bentornato!</h1>
+                <p>hai gia un account?</p>
+                <button class="btn login-btn">Login</button>
+            </div> 
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

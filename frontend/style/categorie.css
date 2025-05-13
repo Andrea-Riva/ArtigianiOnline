@@ -1,0 +1,226 @@
+img {
+    display: flex;
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 15px;
+}
+
+.container-categories{
+  
+  max-width: 1200px;
+  max-height: 900px;
+  background: var(--secondary-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 60px;
+  padding: 20px;
+  border-radius: 15px;
+
+  margin-top: 75px;
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  padding: 20px;
+}
+
+.row-add{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Button CSS */
+.button2 {
+  display: inline-block;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: var(--secondary-color);
+  border: 1px solid #e8e8e8;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.button2:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.button2:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button2:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #009087;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.button2:hover {
+  color: black;
+  border: 1px solid var(--primary-color);
+}
+
+.button2:hover:before {
+  top: -35%;
+  background-color: var(--primary-color);
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.button2:hover:after {
+  top: -45%;
+  background-color: var(--primary-color);
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+
+/* Card CSS */
+
+.card {
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: black; /* Changed from white to black */
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5); /* Optional: changed shadow color to white for better visibility on light backgrounds */
+}
+
+.card:hover .card-label {
+  opacity: 0;
+}
+
+.card img {
+  transition: all 0.5s ease;
+}
+
+.card:hover img {
+  filter: blur(10px);
+  transform: scale(1.05);
+}
+
+.card::before,
+.card::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  /* I DUE ANGOLI ALTO DX BASSO SX CHE NE FUNZIONAVA UNO SI UNO NO */
+  /*background-color: var(--light-bg);
+  transition: all 0.5s;*/
+}
+/* QUESTO ERA SEMPRE LEGATO AI DUE QUADRATINI LI (NON SO IN CHE MODO) */
+/*.card::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+} */
+
+.card::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100%  0 15px;
+}
+
+.card:hover::before,
+.card:hover:after {
+  backdrop-filter: none;
+  background-color: rgba(232, 232, 232, 0.01);
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+.card::after {
+  position: absolute;
+  content: "Visualizza";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  border-radius: 15px;
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.card:hover::after {
+  visibility: visible;
+  animation: popUp 1s ease forwards;
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
