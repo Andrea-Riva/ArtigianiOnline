@@ -14,6 +14,7 @@ app.get("/", (req, res) => {
 })
 
 app.use('/api/utenti', utenteRoutes)
+app.use('api/utenti/:id', utenteRoutes)
 
 // Attiva il server sulla porta 3000
 app.listen(port, () => {
