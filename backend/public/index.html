@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtigianiOnline API Documentation</title>
+    <link rel="stylesheet" href="style/index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>API ArtigianiOnline</h1>
+            <p class="subtitle">Benvenuto nel server!</p>
+        </header>
+
+        <section class="endpoints">
+            <h2>Endpoints dell'API disponibili</h2>
+            
+            <div class="endpoint-card">
+                <div class="method get">GET</div>
+                <div class="endpoint-details">
+                    <h3>/api/utenti</h3>
+                    <p>Tutti gli utenti presenti nel DB</p>
+                </div>
+            </div>
+
+            <div class="endpoint-card">
+                <div class="method get">GET</div>
+                <div class="endpoint-details">
+                    <h3>/api/utenti/:id</h3>
+                    <p>Uno specifico utente per ID</p>
+                </div>
+            </div>
+
+            <div class="endpoint-card">
+                <div class="method post">POST</div>
+                <div class="endpoint-details">
+                    <h3>/api/utenti</h3>
+                    <p>Crea un nuovo utente</p>
+                </div>
+            </div>
+
+            <div class="endpoint-card">
+                <div class="method put">PUT</div>
+                <div class="endpoint-details">
+                    <h3>/api/utenti/:id</h3>
+                    <p>Aggiorna un utente già esistente per ID</p>
+                </div>
+            </div>
+
+            <div class="endpoint-card">
+                <div class="method delete">DELETE</div>
+                <div class="endpoint-details">
+                    <h3>/api/utenti/:id</h3>
+                    <p>Elimina uno specifico utente per ID</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

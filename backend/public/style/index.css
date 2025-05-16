@@ -1,0 +1,118 @@
+:root {
+    --primary-color: #2d3436;
+    --background-color: #f5f6fa;
+    --card-background: #ffffff;
+    --get-color: #00b894;
+    --post-color: #0984e3;
+    --put-color: #fdcb6e;
+    --delete-color: #d63031;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: #636e72;
+    font-size: 1.2rem;
+}
+
+.endpoints {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.endpoints h2 {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--background-color);
+}
+
+.endpoint-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--background-color);
+    transition: transform 0.2s ease;
+}
+
+.endpoint-card:hover {
+    transform: translateX(10px);
+}
+
+.method {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: white;
+    min-width: 80px;
+    text-align: center;
+}
+
+.get { background-color: var(--get-color); }
+.post { background-color: var(--post-color); }
+.put { background-color: var(--put-color); }
+.delete { background-color: var(--delete-color); }
+
+.endpoint-details {
+    margin-left: 1rem;
+}
+
+.endpoint-details h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.endpoint-details p {
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .endpoint-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .endpoint-details {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+}
