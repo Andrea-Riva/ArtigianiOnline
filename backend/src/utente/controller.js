@@ -48,8 +48,23 @@ const addUtente = async (req, res) => { // POST /
     }
 }
 
+const deleteUtente = async (req, res) => {  // DELETE /id
+    const id = parseInt(req.params.id);
+    try {
+        const result = await pool.query(queries.deleteUtente, [id]);
+        if (result.rowCount === 0) {
+            return res.status(404).json({ error: "Utente non trovato" });
+        }
+        res.status(204).send();
+    } catch (error) {
+        console.error("Errore nell'eliminazione dell'utente:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+}
+
 module.exports = {
     getUtenti,
     getUtenteById,
     addUtente,
+    deleteUtente,
 }
