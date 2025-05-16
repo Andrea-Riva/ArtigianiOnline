@@ -1,3 +1,5 @@
+// Animazioni hamburger menu e registrazione/login
+
 const container = document.querySelector('.container');
 const registerButton = document.querySelector('.register-btn');
 const loginButton = document.querySelector('.login-btn');

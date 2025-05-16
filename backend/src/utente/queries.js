@@ -3,7 +3,7 @@ const getUtenti =
 const getUtenteById = 
     "SELECT * FROM utente WHERE id_utente = $1"; // Prende uno specifico utente in base all'id
 const addUtente = 
-    "INSERT INTO utente (nome, cognome, mail, pwd, ruolo_utente) VALUES ($1, $2, $3, $4, 'cliente') RETURNING id_utente"; // Aggiunge un nuovo utente al DB
+    "INSERT INTO utente (nome, cognome, mail, pwd, ruolo_utente) VALUES ($1, $2, $3, $4, $5) RETURNING id_utente"; // Aggiunge un nuovo utente al DB
 const checkUtenteExists = 
     "SELECT * FROM utente WHERE mail = $1"; // Controlla se l'utente esiste già nel DB
 const deleteUtente = 

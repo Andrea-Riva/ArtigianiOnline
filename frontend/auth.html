@@ -56,15 +56,12 @@
             <form action="">    
                 <h1>Login</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Nome utente" required>
+                    <input type="text" placeholder="E-Mail" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
                     <input type="password" placeholder="Password" required>
                     <i class='bx bxs-lock-alt' ></i>
-                </div>
-                <div class="forgot-link">
-                    <a href="#">Forgot password</a>
                 </div>
                 <button type="submit" class="btn">Login</button>
             </form>
@@ -74,22 +71,27 @@
             <form action="">    
                 <h1>Registrazione</h1>
                 <div class="input-box">
-                    <input type="text" placeholder="Nome" required>
+                    <input type="text" placeholder="Nome" id="nome" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Cognome" required>
+                    <input type="text" placeholder="Cognome" id="cognome" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" placeholder="Email" id="mail" required>
                     <i class='bx bxs-envelope'></i>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Password" id="pwd" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
-                <button type="submit" class="btn">Registrati</button>
+                    <div class="check-box" style="text-align: center; margin: 15px 0;">
+                        <label>
+                            <input type="checkbox" name="isArtisan" id="checkButtonArtigiano"> Sei un artigiano?
+                        </label>
+                    </div>
+                <button type="submit" class="btn" id="buttonRegistrazione">Registrati</button>
             </form>
         </div>
         <div class="toggle-box">
@@ -101,12 +103,13 @@
             <div class="toggle-panel toggle-right">
                 <h1>Ciao, bentornato!</h1>
                 <p>hai gia un account?</p>
-                <button class="btn login-btn">Login</button>
+                <button class="btn login-btn" id="buttonLogin">Login</button>
             </div> 
         </div>
     </div>
 
     <script src="script/script.js"></script>
+    <script src="script/registrazione.js"></script>
 </body>
 
 </html>

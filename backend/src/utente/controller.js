@@ -26,14 +26,14 @@ const getUtenteById = async (req, res) => { // GET /id
 }
 
 const addUtente = async (req, res) => { // POST /
-    const { nome, cognome, mail, pwd } = req.body;
+    const { nome, cognome, mail, pwd, ruolo_utente } = req.body;
     try {
         // Controlla se l'utente esiste già
         pool.query(queries.checkUtenteExists, [mail], (err, result) => {
             if (result.rows.length > 0) {
                 res.send("La mail è già in uso")
             } else {    // Se l'utente non esiste, lo aggiunge
-                pool.query(queries.addUtente, [nome, cognome, mail, pwd], (err, result) => {
+                pool.query(queries.addUtente, [nome, cognome, mail, pwd, ruolo_utente], (err, result) => {
                     if(err) {
                         console.error("Errore nella creazione dell'utente:", err);
                         res.status(500).json({ error: "Internal server error" });
