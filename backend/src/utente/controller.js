@@ -53,11 +53,26 @@ const deleteUtente = async (req, res) => {  // DELETE /id
     try {
         const result = await pool.query(queries.deleteUtente, [id]);
         if (result.rowCount === 0) {
-            return res.status(404).json({ error: "Utente non trovato" });
+            return res.status(404).json({ error: "Utente non presente nel DB" });
         }
         res.status(204).send();
     } catch (error) {
         console.error("Errore nell'eliminazione dell'utente:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+}
+
+const updateUtente = async (req, res) => {  // PUT /id
+    const id = parseInt(req.params.id);
+    const { nome, cognome, mail, pfp } = req.body;
+    try {
+        const result = await pool.query(queries.updateUtente, [nome, cognome, mail, pfp, id]);
+        if (result.rowCount === 0) {
+            return res.status(404).json({ error: "Utente non presente nel DB" });
+        }
+        res.status(200).json({ message: "Utente aggiornato con successo" });
+    } catch (error) {
+        console.error("Errore nell'aggiornamento dell'utente:", error);
         res.status(500).json({ error: "Internal server error" });
     }
 }
@@ -67,4 +82,5 @@ module.exports = {
     getUtenteById,
     addUtente,
     deleteUtente,
+    updateUtente,
 }
