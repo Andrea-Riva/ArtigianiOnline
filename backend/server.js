@@ -1,12 +1,15 @@
 // Setup express
 const express = require('express')
 const path = require('path')
+const cors = require('cors')    // Policy CORS
 // Routes
 const utenteRoutes = require('./src/utente/routes')
 
 const app = express()
 // Setup porta del server
 const port = 3000
+// Attiva le policy CORS
+app.use(cors())
 // Middleware parsare le richieste in JSON
 app.use(express.json())
 
