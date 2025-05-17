@@ -20,12 +20,12 @@ buttonRegistrazione.addEventListener('click', async (e) => {
     const nome = document.getElementById('nome').value
     const cognome = document.getElementById('cognome').value
     const mail = document.getElementById('mail').value
-    const rawPassword = document.getElementById('pwd').value;
+    const pwdInChiaro = document.getElementById('pwd').value;
     // Critta la password client-side
-    const password = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(rawPassword))
+    const password = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pwdInChiaro))
         .then(hash => Array.from(new Uint8Array(hash))
         .map(b => b.toString(16).padStart(2, '0'))
-        .join(''));
+        .join(''))
 
     // Crea l'oggetto utente
     console.log(isArtigiano())
@@ -48,13 +48,13 @@ buttonRegistrazione.addEventListener('click', async (e) => {
         });
 
         if (response.ok) {
-            alert('Registrazione completata con successo!');
-            window.location.href = 'index.html';   // Reindirizza alla pagina di login
+            alert('Registrazione completata con successo!')
+            window.location.href = 'index.html' // Reindirizza alla home
         } else {
-            alert('Errore durante la registrazione');
+            alert('Errore durante la registrazione')
         }
     } catch (error) {
         console.error('Errore:', error);
-        alert('Errore di connessione al server');
+        alert('Errore di connessione al server')
     }
-});
+})

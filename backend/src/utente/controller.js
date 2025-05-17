@@ -77,10 +77,26 @@ const updateUtente = async (req, res) => {  // PUT /id
     }
 }
 
+const loginUtente = async (req, res) => {  // POST /login/:mail
+    const mail = req.params.mail;
+    const { pwd } = req.body;
+    try {
+        const { rows } = await pool.query(queries.loginUtente, [mail, pwd]);    // Esegue la query per il login
+        if (rows.length === 0) {    // Controlla se l'utente esiste
+            return res.status(404).json({ error: "Login errato" });   // Se l'utente non esiste, restituisce 404 not found
+        }
+        res.status(200).json(rows[0]);  // Se l'utente è stato trovato e la pwd è corretta, restituisce 200 OK
+    } catch (error) {
+        console.error("Errore nel login dell'utente:", error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+}
+
 module.exports = {
     getUtenti,
     getUtenteById,
     addUtente,
     deleteUtente,
     updateUtente,
+    loginUtente
 }

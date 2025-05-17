@@ -10,6 +10,8 @@ const deleteUtente =
     "DELETE FROM utente WHERE id_utente = $1";  // Elimina un utente in base all'id
 const updateUtente =
     "UPDATE utente SET nome = $1, cognome = $2, mail = $3, pfp = $4 WHERE id_utente = $5"; // Aggiorna un utente in base all'id
+const loginUtente = 
+    "SELECT * FROM utente WHERE mail = $1 AND pwd = $2";    // Controlla se mail e pwd sono corretti
 
 module.exports = {
     getUtenti,
@@ -17,5 +19,6 @@ module.exports = {
     addUtente,
     checkUtenteExists,
     deleteUtente,
-    updateUtente
+    updateUtente,
+    loginUtente
 }
