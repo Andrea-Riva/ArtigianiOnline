@@ -19,8 +19,8 @@ buttonRegistrazione.addEventListener('click', async (e) => {
     // Recupera i dati dell'utente dal form
     const nome = document.getElementById('nome').value
     const cognome = document.getElementById('cognome').value
-    const mail = document.getElementById('mail').value
-    const pwdInChiaro = document.getElementById('pwd').value;
+    const mail = document.getElementById('mail_registrazione').value
+    const pwdInChiaro = document.getElementById('pwd_registrazione').value;
     // Critta la password client-side
     const password = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pwdInChiaro))
         .then(hash => Array.from(new Uint8Array(hash))
@@ -36,6 +36,8 @@ buttonRegistrazione.addEventListener('click', async (e) => {
         pwd: password,
         ruolo_utente: isArtigiano()
     }
+
+    console.log(JSON.stringify(utente))
 
     try {
         // Invia i dati al server

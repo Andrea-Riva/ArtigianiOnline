@@ -4,19 +4,18 @@ const buttonLogin = document.getElementById("buttonLogin")  // Bottone di login
 
 // Quando il bottone di login viene premuto
 buttonLogin.addEventListener('click', async (e) => {
-    console.log('click!')
     e.preventDefault(); // Previene il comportamento di default del form
 
     // Recupera i dati di login dell'utente dal form
-    const mail = document.getElementById('mail').value
-    const pwdInChiaro = document.getElementById('pwd').value;
+    const mail = document.getElementById('mail_login').value
+    const pwdInChiaro = document.getElementById('pwd_login').value;
     // Critta la password per il confronto con il server
     const pwd = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pwdInChiaro))
         .then(hash => Array.from(new Uint8Array(hash))
         .map(b => b.toString(16).padStart(2, '0'))
         .join(''))
 
-        // Crea l'oggetto utente da mandare al body della request
+    // Crea l'oggetto utente da mandare al body della request
     const utente_form = {
         pwd: pwd
     }
@@ -37,8 +36,8 @@ buttonLogin.addEventListener('click', async (e) => {
             window.location.href = 'index.html' // Reindirizza alla home
         } else if (response.status === 404) {
             // Pulisce i campi di input
-            const mail = document.getElementById('mail')
-            const pwd = document.getElementById('pwd')
+            const mail = document.getElementById('mail_login')
+            const pwd = document.getElementById('pwd_login')
             mail.value = ''
             pwd.value = ''
             alert('Login errato!')
