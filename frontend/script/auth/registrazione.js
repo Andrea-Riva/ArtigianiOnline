@@ -52,6 +52,7 @@ buttonRegistrazione.addEventListener('click', async (e) => {
         if (response.ok) {
             alert('Registrazione completata con successo!')
             window.location.href = 'index.html' // Reindirizza alla home
+            // Memorizza l'utente usando localStorage e JWT
         } else {
             alert('Errore durante la registrazione')
         }
