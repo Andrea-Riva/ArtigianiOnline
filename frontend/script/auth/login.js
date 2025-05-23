@@ -33,6 +33,11 @@ buttonLogin.addEventListener('click', async (e) => {
         })
         if (response.ok) {
             alert('Login effettuato con successo!')
+            const data = await response.json()
+            console.log(data)
+
+            // Salva il token JWT e l'id dell'utente nel localStorage
+            localStorage.setItem('token', data.token)
             window.location.href = 'index.html' // Reindirizza alla home
         } else if (response.status === 404) {
             // Pulisce i campi di input

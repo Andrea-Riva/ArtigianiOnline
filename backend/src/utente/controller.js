@@ -1,5 +1,13 @@
 const pool = require("../../db")
 const queries = require("./queries")
+const jwt = require('jsonwebtoken') // Per la gestione dei token JWT
+
+// Genera un token JWT
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, {
+        expiresIn: '1h'
+    })
+}
 
 const getUtenti = async (req, res) => { // GET /
     try {
@@ -25,7 +33,7 @@ const getUtenteById = async (req, res) => { // GET /id
     }
 }
 
-const addUtente = async (req, res) => { // POST /
+const registerUtente = async (req, res) => { // POST /
     const { nome, cognome, mail, pwd, ruolo_utente } = req.body;
     try {
         // Controlla se l'utente esiste già
@@ -38,7 +46,8 @@ const addUtente = async (req, res) => { // POST /
                         console.error("Errore nella creazione dell'utente:", err);
                         res.status(500).json({ error: "Internal server error" });
                     }
-                    res.status(201).json({ id: result.rows[0].id_utente });
+                    const token = generateToken(result.rows[0].id_utente); // Genera il token JWT per l'utente
+                    res.status(201).json({ id: result.rows[0].id_utente, token });
                 })
             }
         })
@@ -85,7 +94,8 @@ const loginUtente = async (req, res) => {  // POST /login/:mail
         if (rows.length === 0) {    // Controlla se l'utente esiste
             return res.status(404).json({ error: "Login errato" });   // Se l'utente non esiste, restituisce 404 not found
         }
-        res.status(200).json(rows[0]);  // Se l'utente è stato trovato e la pwd è corretta, restituisce 200 OK
+        const token = generateToken(rows[0].id_utente); // Genera il token JWT per l'utente
+        res.status(200).json({id: rows[0].id_utente, token});  // Se l'utente è stato trovato e la pwd è corretta, restituisce 200 OK
     } catch (error) {
         console.error("Errore nel login dell'utente:", error);
         res.status(500).json({ error: "Internal server error" });
@@ -95,7 +105,7 @@ const loginUtente = async (req, res) => {  // POST /login/:mail
 module.exports = {
     getUtenti,
     getUtenteById,
-    addUtente,
+    registerUtente,
     deleteUtente,
     updateUtente,
     loginUtente

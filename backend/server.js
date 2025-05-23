@@ -1,7 +1,11 @@
+// Require dotenv for environment variables
+require('dotenv').config()
+
 // Setup express
 const express = require('express')
 const path = require('path')
 const cors = require('cors')    // Policy CORS
+const helmet = require('helmet') // Per la gestione della sicurezza
 // Routes
 const utenteRoutes = require('./src/utente/routes')
 const prodottoRoutes = require('./src/prodotto/routes')
@@ -13,6 +17,8 @@ const port = 3000
 app.use(cors())
 // Middleware parsare le richieste in JSON
 app.use(express.json())
+// Middleware per la gestione della sicurezza
+app.use(helmet())
 
 // Display del file statico per la homepage del server
 app.use(express.static(path.join(__dirname, 'public')))
